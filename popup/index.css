@@ -1,0 +1,72 @@
+body {
+    width: 530px;
+    padding: 1rem 0 2rem;
+    margin: 0;
+    color: #1b1b1b;
+    background-color: white;
+    font: 1rem / 1.75 arial, sans-serif;
+    letter-spacing: -.0027777778rem;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    padding: 1rem 1.5rem;
+}
+
+main {
+    padding: 1rem 1.5rem;
+}
+
+h1 {
+    padding: 0 .1ch;
+    margin: 0;
+    font: 2rem / 3rem 'Zilla Slab', monospace;
+    color: white;
+    background-color: black;
+}
+
+h2 {
+    margin: 0;
+    font: 1.5rem / 1.5 'Zilla Slab', monospace;
+}
+
+img {
+    display: inline-block;
+    height: 3rem;
+    margin-right: .2rem;
+}
+
+p {
+    margin: 0 0 1.5rem 0;
+}
+
+a {
+    color: #005282;
+}
+
+.note {
+    padding: 12px;
+    margin: 0 0 24px;
+    background-color: #ddeaff;
+    border-left: 6px solid #0072b3;
+}
+
+aside {
+    background-color: #f4f4f4;
+    padding: 1.5rem;
+}
+
+button {
+    display: inline-block;
+    padding: 5px 8px;
+    color: #fff;
+    background-color: #005282;
+    font: inherit;
+    font-size: .9rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+

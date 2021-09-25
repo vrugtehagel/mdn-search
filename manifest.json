@@ -1,0 +1,33 @@
+{
+    "name": "MDN Search",
+    "description": "Search MDN directly, without having to go through Google!",
+    "version": "0.1",
+    "manifest_version": 3,
+    "permissions": ["tabs", "activeTab", "storage"],
+    "background": {
+        "service_worker": "service-worker.js",
+        "type": "module"
+    },
+    "action": {
+        "default_title": "MDN Search",
+        "default_icon": {
+            "16": "images/icon-16.png",
+            "32": "images/icon-32.png",
+            "48": "images/icon-48.png",
+            "128": "images/icon-128.png"
+        },
+        "default_popup": "popup/index.html"
+    },
+    "icons": {
+        "16": "images/icon-16.png",
+        "32": "images/icon-32.png",
+        "48": "images/icon-48.png",
+        "128": "images/icon-128.png"
+    },
+    "content_scripts": [{
+        "matches": ["https://*/search*"],
+        "include_globs": ["https://www.google.*/search*"],
+        "run_at": "document_start",
+        "js": ["content.js"]
+    }]
+}
