@@ -3,7 +3,7 @@
     "description": "Search MDN directly, without having to go through Google!",
     "version": "0.1",
     "manifest_version": 3,
-    "permissions": ["tabs", "activeTab", "storage"],
+    "permissions": [],
     "background": {
         "service_worker": "service-worker.js",
         "type": "module"
