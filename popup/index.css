@@ -1,6 +1,6 @@
 body {
     width: 530px;
-    padding: 1rem 0 2rem;
+    padding: 1rem 0 0;
     margin: 0;
     color: #1b1b1b;
     background-color: white;
@@ -55,6 +55,7 @@ a {
 aside {
     background-color: #f4f4f4;
     padding: 1.5rem;
+    margin: 0 0 2rem;
 }
 
 button {
@@ -69,4 +70,45 @@ button {
     cursor: pointer;
 }
 
+footer {
+    color: white;
+    background-color: #1b1b1b;
+    padding: 1rem 1.5rem 2rem;
+}
 
+footer header {
+    padding: 1rem 0;
+}
+
+footer header p {
+    padding: 0 .1ch;
+    margin: 0;
+    font: 900 1.5rem / 2.5rem 'Zilla Slab', monospace;
+    color: #1b1b1b;
+    background-color: white;
+}
+
+footer header img {
+    height: 2.5rem;
+    margin-right: .1rem;
+}
+
+footer nav {
+    display: flex;
+    flex-direction: column;
+}
+
+footer nav a {
+    display: inline-block;
+    padding: .5rem 0;
+    color: inherit;
+    text-decoration: none;
+}
+
+footer nav a:is(:hover, :active, :focus){
+    text-decoration: underline;
+}
+
+footer hr {
+    margin: 2rem 0;
+}
