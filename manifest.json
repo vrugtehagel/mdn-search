@@ -4,10 +4,6 @@
     "version": "1.0",
     "manifest_version": 3,
     "permissions": [],
-    "background": {
-        "service_worker": "service-worker.js",
-        "type": "module"
-    },
     "action": {
         "default_title": "MDN Search",
         "default_icon": {
