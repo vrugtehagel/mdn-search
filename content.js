@@ -6,7 +6,7 @@ function isEligible(href){
     return url.pathname == '/search'
         && query
         && /( |^)mdn( |$)/i.test(query)
-        && !/^\s*mdn\s*$/i.test(query)
+        && query.toLowerCase().trim() != 'mdn'
 }
 
 async function searchMDN(query, locale){
@@ -19,9 +19,26 @@ async function searchMDN(query, locale){
     return data.documents
 }
 
+function showNoResults(query, locale){
+    location.href = `${mdnURL}/${locale}/search?q=${query}`
+}
+
+function getBestResult(results){
+    const rank = ({score, popularity}) =>
+        score * (1 + 20 * popularity)
+    return results
+        .sort((a, b) => b.score - a.score)
+        .slice(0, 3)
+        .sort((a, b) => rank(b) - rank(a))
+        .at(0)
+}
+
 async function findOnMDN(query, locale = 'en-US'){
     const results = await searchMDN(query, locale)
-    const pageURL = results[0]['mdn_url']
+    if(results.length == 0)
+        return showNoResults(query, locale)
+    const best = getBestResult(results)
+    const pageURL = best['mdn_url']
     location.href = pageURL[0] == '/'
         ? mdnURL + pageURL
         : pageURL
