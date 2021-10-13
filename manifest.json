@@ -1,7 +1,7 @@
 {
     "name": "MDN Search",
     "description": "Search MDN directly, without having to go through Google!",
-    "version": "1.0",
+    "version": "1.0.1",
     "manifest_version": 3,
     "permissions": [],
     "action": {
