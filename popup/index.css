@@ -1,17 +1,60 @@
+:root {
+    --background: #1b1b1b;
+    --background-dim: #343434;
+    --background-really-dim: #343434;
+    --text: white;
+    --text-dim: #cdcdcd;
+    --note: #5e9eff;
+    --note-dim: rgb(0 133 242 / 10%);
+    --note-icon: url("data:image/svg+xml,\
+        %3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E\
+            %3Cpath d='M8,0a8,8,0,1,0,8,8A8,8,0,0,0,8,0Zm.8,12H7.2V7.2H8.8Zm0-6.4H7.2V4H8.8Z' fill='%235e9eff'/%3E\
+        %3C/svg%3E\
+    ");
+    --border: #858585;
+    --link: #8cb4ff;
+    --icon: url(/images/icon.svg);
+}
+
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --background: white;
+        --background-dim: #f9f9fb;
+        --background-really-dim: #f9f9fb;
+        --text: #1b1b1b;
+        --text-dim: #4e4e4e;
+        --note: #0085f2;
+        --note-dim: rgb(0 133 242 / 10%);
+        --note-icon: url("data:image/svg+xml,\
+            %3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E\
+                %3Cpath d='M8,0a8,8,0,1,0,8,8A8,8,0,0,0,8,0Zm.8,12H7.2V7.2H8.8Zm0-6.4H7.2V4H8.8Z' fill='%230085f2'/%3E\
+            %3C/svg%3E\
+        ");
+        --border: #cdcdcd;
+        --link: #0069c2;
+        --icon: url(/images/icon-light.svg);
+    }
+}
+
 body {
     width: 530px;
     padding: 1rem 0 0;
     margin: 0;
-    color: #1b1b1b;
-    background-color: white;
-    font: 1rem / 1.75 arial, sans-serif;
+    color: var(--text);
+    background-color: var(--background);
+    font: 1rem / 1.75 Inter, arial, sans-serif;
     letter-spacing: -.0027777778rem;
 }
 
 header {
     display: flex;
     align-items: center;
-    padding: 1rem 1.5rem;
+    padding: 1rem 1.5rem 1rem 5rem;
+    background-image: var(--icon);
+    background-position: 1.5rem 50%;
+    background-size: auto 3rem;
+    background-repeat: no-repeat;
 }
 
 main {
@@ -22,13 +65,11 @@ h1 {
     padding: 0 .1ch;
     margin: 0;
     font: 2rem / 3rem 'Zilla Slab', monospace;
-    color: white;
-    background-color: black;
 }
 
 h2 {
     margin: 0;
-    font: 1.5rem / 1.5 'Zilla Slab', monospace;
+    font: 1.25rem / 1.5 Inter, arial, sans-serif;
 }
 
 img {
@@ -42,20 +83,41 @@ p {
 }
 
 a {
-    color: #005282;
+    color: var(--link);
+}
+
+a:is(:hover, :focus) {
+    text-decoration: none;
+}
+
+a:active {
+    color: white;
+    background: var(--link);
 }
 
 .note {
-    padding: 12px;
+    padding: 1rem 1rem 1rem 3rem;
     margin: 0 0 24px;
-    background-color: #ddeaff;
-    border-left: 6px solid #0072b3;
+    color: var(--text-dim);
+    background-color: var(--note-dim);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--note);
+    border-radius: .25rem;
+    background-image: var(--note-icon);
+    background-position: 1rem 1.5rem;
+    background-size: 1rem 1rem;
+    background-repeat: no-repeat;
 }
 
 aside {
-    background-color: #f4f4f4;
     padding: 1.5rem;
-    margin: 0 0 2rem;
+    margin: 0 1.5rem 2rem;
+    background-color: var(--background-dim);
+    border: 1px solid var(--border);
+}
+
+aside li {
+    margin: .5rem 0;
 }
 
 button {
@@ -71,26 +133,21 @@ button {
 }
 
 footer {
-    color: white;
-    background-color: #1b1b1b;
-    padding: 1rem 1.5rem 2rem;
+    margin: 4rem 0 0;
+    padding: 1rem 1rem 2rem;
+    color: var(--text-dim);
+    background-color: var(--background-really-dim);
 }
 
 footer header {
     padding: 1rem 0;
+    background: none;
 }
 
 footer header p {
-    padding: 0 .1ch;
+    padding: 0;
     margin: 0;
     font: 900 1.5rem / 2.5rem 'Zilla Slab', monospace;
-    color: #1b1b1b;
-    background-color: white;
-}
-
-footer header img {
-    height: 2.5rem;
-    margin-right: .1rem;
 }
 
 footer nav {
@@ -111,4 +168,5 @@ footer nav a:is(:hover, :active, :focus){
 
 footer hr {
     margin: 2rem 0;
+    border: 1px solid var(--border);
 }

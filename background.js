@@ -9,8 +9,9 @@ chrome.runtime.onMessage.addListener((message, sender, respond) => ((async () =>
     const keywords = query.split(/\s+/)
     const sorter = callback => (a, b) => callback(b) - callback(a)
     documents.sort(sorter(({title, score, popularity}) => {
-        const match = keywords.filter(keyword => title.toLowerCase().includes(keyword)).length
-        return 100 * match + score * popularity
+        const sensitiveScore = keywords.filter(keyword => title.includes(keyword)).length
+        const insensitiveScore = keywords.filter(keyword => title.toLowerCase().includes(keyword.toLowerCase())).length
+        return 50 * insensitiveScore + 50 * sensitiveScore + score * popularity
     }))
     const pathname = documents[0]?.mdn_url ?? `/search?q=${query}`
     respond('https://developer.mozilla.org' + pathname)
