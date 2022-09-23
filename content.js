@@ -1,8 +1,10 @@
 (async () => {
     const googleURL = new URL(location.href)
     if(googleURL.pathname != '/search') return
-    const query = googleURL.searchParams.get('q')
-        .replace(/(\s*|^)mdn(\s*|$)/i, ' ').trim()
+    const q = googleURL.searchParams.get('q')
+    const regex = /(\s*|^)mdn(\s*|$)/i
+    if(!regex.test(q)) return
+    const query = q.replace(regex, ' ').trim()
     if(!query) return
     window.stop()
     const type = 'search'
